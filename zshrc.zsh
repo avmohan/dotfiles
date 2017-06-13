@@ -1,17 +1,16 @@
 # /*=====================================
 # =            ZPLUG Imports            =
 # =====================================*/
-  start_time=$(gdate '+%s.%3N')
+
+  # start_time=$(gdate '+%s.%3N')
   export ZPLUG_HOME=/usr/local/opt/zplug
   source $ZPLUG_HOME/init.zsh
 
   # Get useful stuff from oh-my-zsh libs
-  zplug "lib/completions", from:oh-my-zsh
+  zplug "lib/completion", from:oh-my-zsh
   zplug "lib/directories", from:oh-my-zsh
   zplug "lib/history", from:oh-my-zsh
-  zplug "lib/keybindings", from:oh-my-zsh # TODO
-  zplug "lib/misc", from:oh-my-zsh
-  zplug "lib/spectrum", from:oh-my-zsh
+  zplug "lib/keybindings", from:oh-my-zsh
   zplug "lib/termsupport", from:oh-my-zsh
 
 
@@ -40,8 +39,7 @@
   # Load fasd
   zplug "plugins/fasd", from:oh-my-zsh
 
-  # Git aliases & completions for extras
-  zplug "plugins/git", from:oh-my-zsh
+  # Completions for git-extras
   zplug "plugins/git-extras", from:oh-my-zsh
 
   # Maven integration
@@ -53,32 +51,39 @@
   # Completions for pip
   zplug "plugins/pip", from:oh-my-zsh
 
-  # [Esc] [Esc] to prefix sudo to command buffer
-  zplug "plugins/sudo", from:oh-my-zsh
-
   # vagrant completions
   zplug "plugins/vagrant", from:oh-my-zsh
+
+  # docker completions
+  zplug "plugins/docker", from:oh-my-zsh
+  zplug "plugins/docker-compose", from:oh-my-zsh
 
   # google, ddg (duckduckgo), github, youtube, maps ... (web search)
   zplug "plugins/websearch", from:oh-my-zsh
 
   # Suggest command based on recent commands
-  zplug "zsh-users/zsh-autosuggestions", defer:2
+  zplug "zsh-users/zsh-autosuggestions"
 
   # Get zsh completions for a bunch of programs
   zplug "zsh-users/zsh-completions"
 
-  # Syntax highlighting on commands (greed/red)
+  # Syntax highlighting on commands (green/red)
   zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
-  # Set theme
-  zplug 'themes/gnzh', from:oh-my-zsh, as:theme
-  zplug load
+  # Pure theme - minimal, fast
+  zplug mafredri/zsh-async, from:github, defer:0
+  zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+  RPROMPT="[%h] [%D{%H:%M:%S %d-%m-%y}]"
 
-  end_time=$(gdate '+%s.%3N')
-  time_taken=$(echo $end_time - $start_time | bc)
-  echo "Zplug Loaded in $time_taken seconds"
-  unset start_time end_time time_taken
+  # st=$(gdate '+%s.%3N')
+  zplug load
+  # et=$(gdate '+%s.%3N')
+  # echo "load time=" $(echo $et - $st | bc)
+
+  # end_time=$(gdate '+%s.%3N')
+  # time_taken=$(echo $end_time - $start_time | bc)
+  # echo "Zplug Loaded in $time_taken seconds"
+  # unset start_time end_time time_taken
 
 # /*=====  End of ZPLUG Imports  ======*/
 
@@ -91,18 +96,18 @@
 
     # Switch cntlm to use home settings
     cntlm-home() {
-      cp ~/.dotfiles/private/cntlm.conf-home /usr/local/etc/cntlm.conf
+      cp -f ~/.dotfiles/private/cntlm.conf-home /usr/local/etc/cntlm.conf
       brew services restart cntlm
     }
 
     # Switch cntlm to use work settings
     cntlm-work() {
-      cp ~/.dotfiles/private/cntlm.conf-work /usr/local/etc/cntlm.conf
+      cp -f ~/.dotfiles/private/cntlm.conf-work /usr/local/etc/cntlm.conf
       brew services restart cntlm
     }
 
     # Test internet connectivity (GET google and check response status)
-    alias testnet='curl -s -o /dev/null -w "%{http_code}\n" https://www.google.com'
+    alias testnet='curl -k -s -o /dev/null -w "%{http_code}\n" https://www.google.com'
 
     # Echo current proxy settings
     proxy() {
@@ -138,24 +143,22 @@
   # This function expects a symlink '._workspace' in repo's root directory pointing
   # to the STS workspace directory
   sts-here() {
-      # Get repo_base if this is a git repo, else error out
-      local repo_base=$(git rev-parse --show-toplevel)
-      if [[ ! $repo_base ]]; then
-          echo "Not a git repo" && return 1
-      fi
-      # If no symlink ._workspace in repo_base, error out
-      if [[ ! -h $repo_base/._workspace ]]; then
-          echo "No symlink ._workspace in $repo_base" && return 1
-      fi
-      # Open the directory pointed to by ._workspace in repo root in sts
-      open -n /Applications/STS.app/ --args -data $(realpath "$repo_base/._workspace")
-  }
+        # Get repo_base if this is a git repo, else error out
+        local repo_base=$(git rev-parse --show-toplevel)
+        if [[ ! $repo_base ]]; then
+            echo "Not a git repo" && return 1
+        fi
+        # If no symlink ._workspace in repo_base, error out
+        if [[ ! -h $repo_base/._workspace ]]; then
+            echo "No symlink ._workspace in $repo_base" && return 1
+        fi
+        # Open the directory pointed to by ._workspace in repo root in sts
+        open -n /Applications/STS.app/ --args -data $(realpath "$repo_base/._workspace")
+    }
 
-  # Use jenv for jdk version management
-  eval "$(jenv init -)"
+  alias sts='open -n /Applications/STS.app'
 
-  # alias mvn='mvn --threads 1C'
-  # alias mvno='mvn --offline'
+  alias mvn='mvn --threads 1C'
 
 # /*=====  End of Java development related  ======*/
 
@@ -191,6 +194,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper_lazy.sh
 
+# Source private stuff
 if [[ -f ~/.dotfiles/private/misc.zsh ]]; then
   ~/.dotfiles/private/misc.zsh
 fi
