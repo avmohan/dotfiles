@@ -196,5 +196,6 @@ source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 # Source private stuff
 if [[ -f ~/.dotfiles/private/misc.zsh ]]; then
-  ~/.dotfiles/private/misc.zsh
+  . ~/.dotfiles/private/misc.zsh
 fi
+set -o emacs
