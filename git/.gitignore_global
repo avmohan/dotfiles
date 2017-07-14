@@ -1,0 +1,8 @@
+# os-x
+.DS_Store
+
+# A symlink with this name is created to point to the eclipse workspace
+._workspace
+
+# This directory is maintained to dump stuff that git shouldn't track
+.abmohan_ignored_stuff/

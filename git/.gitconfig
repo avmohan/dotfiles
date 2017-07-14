@@ -1,0 +1,47 @@
+[user]
+	name = Abhijith V Mohan
+	email = abhijith.vmohan@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
+	autocrlf = input
+[log]
+	date = local
+	decorate = true
+	abbrevCommit = true
+[alias]
+	f = fetch
+	co = checkout
+	s = status
+	l = log
+	br = branch
+	g = log --oneline --abbrev-commit --all --graph --decorate
+	diffw = diff -w
+	unstage = reset HEAD
+	rb = rebase
+	cp = cherry-pick
+	a = add
+    hide = update-index --assume-unchanged
+    show = update-index --no-assume-unchanged
+[push]
+	default = simple
+[merge]
+	defaultToUpstream = true
+	conflictstyle = diff3
+	tool = opendiff
+[diff]
+	algorithm = patience
+	tool = opendiff
+[color]
+	ui = true
+[branch]
+	autosetuprebase = always
+[advice]
+	detachedHead = false
+[pager]
+    log = diff-so-fancy | less --tabs=4 -RFX
+    show = diff-so-fancy | less --tabs=4 -RFX
+    diff = diff-so-fancy | less --tabs=4 -RFX
+[pull]
+	rebase = true
+[rerere]
+	enabled = true
