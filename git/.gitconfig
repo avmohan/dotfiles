@@ -18,6 +18,7 @@
     hide = update-index --assume-unchanged
     show = update-index --no-assume-unchanged
     patch = !git --no-pager diff --no-color
+    spr = !hub pr show -h $(git symbolic-ref HEAD)
 
 [push]
     default = simple
