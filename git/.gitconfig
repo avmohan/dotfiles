@@ -1,74 +1,69 @@
 [user]
-	name = Abhijith V Mohan
-	email = abhijith.vmohan@gmail.com
+    name = Abhijith V Mohan
+    email = abhijith.vmohan@gmail.com
 
 [core]
-	excludesfile = ~/.gitignore_global
-	autocrlf = input
+    excludesfile = ~/.gitignore_global
+    autocrlf = input
 
 [log]
-	date = local
-	decorate = true
-	abbrevCommit = true
+    date = local
+    decorate = true
+    abbrevCommit = true
 
 [alias]
-	rb = rebase
-	cp = cherry-pick
-	psu = push origin -u HEAD
+    rb = rebase
+    cp = cherry-pick
+    psu = push origin -u HEAD
     hide = update-index --assume-unchanged
     show = update-index --no-assume-unchanged
-	patch = !git --no-pager diff --no-color
+    patch = !git --no-pager diff --no-color
 
 [push]
-	default = simple
+    default = simple
 
 [merge]
-	defaultToUpstream = true
-	conflictstyle = diff3
+    defaultToUpstream = true
+    conflictstyle = diff3
 
 [diff]
-	algorithm = patience
+    algorithm = patience
 
 [branch]
-	autosetuprebase = always
+    autosetuprebase = always
 
 [advice]
-	detachedHead = false
+    detachedHead = false
 
 [pull]
-	rebase = true
+    rebase = true
 
 [rerere]
-	enabled = true
+    enabled = true
 
 # For diff-so-fancy
 [color]
-	ui = true
+    ui = true
 
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
 
 [color "diff"]
-	meta = yellow
-	frag = magenta bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+    meta = yellow
+    frag = magenta bold
+    commit = yellow bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
 
 # TODO preseed with pattern - '^(commit [a-f0-9]+|added:|deleted:|modified:) '
 [pager]
-    log = diff-so-fancy | less --tabs=4 -RFX 
-    show = diff-so-fancy | less --tabs=4 -RFX
-    diff = diff-so-fancy | less --tabs=4 -RFX
-
-# For git-bulk
-[bulkworkspaces]
-	work = ~/work/repos
-	personal = ~/repos
+    log = diff-so-fancy | less --tabs=4 -RFXS
+    show = diff-so-fancy | less --tabs=4 -RFXS
+    diff = diff-so-fancy | less --tabs=4 -RFXS
 
 # Overrides for work
 [includeIf "gitdir:~/work/"]
