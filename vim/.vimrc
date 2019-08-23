@@ -27,6 +27,8 @@ let python_highlight_all = 1
 
 " Set colorscheme to solarized-dark
 " colorscheme solarized
-colorscheme dracula
 
 "set smartindent
+
+set backspace=indent,eol,start
+
