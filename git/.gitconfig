@@ -42,6 +42,9 @@
 [rerere]
     enabled = true
 
+[rebase]
+	autoSquash = true
+
 # For diff-so-fancy
 [color]
     ui = true
