@@ -67,6 +67,7 @@ zplug "plugins/urltools", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/httpie", from:oh-my-zsh
 zplug "plugins/ssh-agent", from:oh-my-zsh
+zplug "plugins/fzf", from:oh-my-zsh
 
 # Suggest command based on recent commands
 zplug "zsh-users/zsh-autosuggestions"
@@ -146,5 +147,9 @@ source ~/.dotfiles/lib/pushnotify.zsh
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
 
+# Add kubectx to $PS1
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 PS1='$(kube_ps1)'$PS1
+
+# pretty print json with color
+alias -g JL=" | jq -C | less -R"
