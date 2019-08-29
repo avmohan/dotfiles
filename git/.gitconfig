@@ -65,9 +65,9 @@
 
 # TODO preseed with pattern - '^(commit [a-f0-9]+|added:|deleted:|modified:) '
 [pager]
-    log = diff-so-fancy | less --tabs=4 -RFXS
-    show = diff-so-fancy | less --tabs=4 -RFXS
-    diff = diff-so-fancy | less --tabs=4 -RFXS
+    log = diff-so-fancy | less --tabs=4 -RFX
+    show = diff-so-fancy | less --tabs=4 -RFX
+    diff = diff-so-fancy | less --tabs=4 -RFX
 
 # Overrides for work
 [includeIf "gitdir:~/work/"]
