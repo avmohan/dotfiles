@@ -31,3 +31,6 @@
 [submodule "tmux/dot-tmux/plugins/tmux-yank"]
 	path = tmux/dot-tmux/plugins/tmux-yank
 	url = https://git::@github.com/tmux-plugins/tmux-yank
+[submodule "hammerspoon/.hammerspoon"]
+	path = hammerspoon/.hammerspoon
+	url = git@github.com:avmohan/awesome-hammerspoon.git
