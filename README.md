@@ -6,7 +6,12 @@ Just my dotfiles.
 Installation
 ------------
 - Clone this repo to $HOME
-- Install gnu-stow and `stow` required folders from $HOME
+- Install gnu-stow and `stow` required folders from $HOME, passing --dotfiles
+```
+stow -v --dotfiles zsh
+stow -v --dotfiles git
+...
+```
 
 Todos
 -----
