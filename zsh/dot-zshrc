@@ -93,6 +93,13 @@ zplug load
 # echo "Zplug Loaded in $time_taken seconds"
 # unset start_time end_time time_taken
 
+# Useful for general debugging
+debug() {
+  if [[ ! -z $AVMOHAN_DEBUG ]]; then
+    echo $*
+  fi
+}
+
 # Super large history
 HISTSIZE=100000
 SAVEHIST=100000
@@ -153,3 +160,4 @@ PS1='$(kube_ps1)'$PS1
 
 # pretty print json with color
 alias -g JL=" | jq -C | less -R"
+
