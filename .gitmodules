@@ -1,33 +1,33 @@
 [submodule "lib/powerline"]
 	path = lib/powerline
 	url = git@github.com:powerline/powerline.git
-[submodule "tmux/.tmux/plugins/tpm"]
-	path = tmux/.tmux/plugins/tpm
+[submodule "tmux/dot-tmux/plugins/tpm"]
+	path = tmux/dot-tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "tmux/.tmux/plugins/tmux-battery"]
-	path = tmux/.tmux/plugins/tmux-battery
+[submodule "tmux/dot-tmux/plugins/tmux-battery"]
+	path = tmux/dot-tmux/plugins/tmux-battery
 	url = https://git::@github.com/tmux-plugins/tmux-battery
-[submodule "tmux/.tmux/plugins/tmux-continuum"]
-	path = tmux/.tmux/plugins/tmux-continuum
+[submodule "tmux/dot-tmux/plugins/tmux-continuum"]
+	path = tmux/dot-tmux/plugins/tmux-continuum
 	url = https://git::@github.com/tmux-plugins/tmux-continuum
-[submodule "tmux/.tmux/plugins/tmux-copycat"]
-	path = tmux/.tmux/plugins/tmux-copycat
+[submodule "tmux/dot-tmux/plugins/tmux-copycat"]
+	path = tmux/dot-tmux/plugins/tmux-copycat
 	url = https://git::@github.com/tmux-plugins/tmux-copycat
-[submodule "tmux/.tmux/plugins/tmux-open"]
-	path = tmux/.tmux/plugins/tmux-open
+[submodule "tmux/dot-tmux/plugins/tmux-open"]
+	path = tmux/dot-tmux/plugins/tmux-open
 	url = https://git::@github.com/tmux-plugins/tmux-open
-[submodule "tmux/.tmux/plugins/tmux-pain-control"]
-	path = tmux/.tmux/plugins/tmux-pain-control
+[submodule "tmux/dot-tmux/plugins/tmux-pain-control"]
+	path = tmux/dot-tmux/plugins/tmux-pain-control
 	url = https://git::@github.com/tmux-plugins/tmux-pain-control
-[submodule "tmux/.tmux/plugins/tmux-resurrect"]
-	path = tmux/.tmux/plugins/tmux-resurrect
+[submodule "tmux/dot-tmux/plugins/tmux-resurrect"]
+	path = tmux/dot-tmux/plugins/tmux-resurrect
 	url = https://git::@github.com/tmux-plugins/tmux-resurrect
-[submodule "tmux/.tmux/plugins/tmux-sensible"]
-	path = tmux/.tmux/plugins/tmux-sensible
+[submodule "tmux/dot-tmux/plugins/tmux-sensible"]
+	path = tmux/dot-tmux/plugins/tmux-sensible
 	url = https://git::@github.com/tmux-plugins/tmux-sensible
-[submodule "tmux/.tmux/plugins/tmux-sidebar"]
-	path = tmux/.tmux/plugins/tmux-sidebar
+[submodule "tmux/dot-tmux/plugins/tmux-sidebar"]
+	path = tmux/dot-tmux/plugins/tmux-sidebar
 	url = https://git::@github.com/tmux-plugins/tmux-sidebar
-[submodule "tmux/.tmux/plugins/tmux-yank"]
-	path = tmux/.tmux/plugins/tmux-yank
+[submodule "tmux/dot-tmux/plugins/tmux-yank"]
+	path = tmux/dot-tmux/plugins/tmux-yank
 	url = https://git::@github.com/tmux-plugins/tmux-yank
