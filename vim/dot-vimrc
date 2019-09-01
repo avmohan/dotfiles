@@ -32,3 +32,4 @@ let python_highlight_all = 1
 
 set backspace=indent,eol,start
 
+nnoremap Q @q

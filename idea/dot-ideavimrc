@@ -1,1 +1,80 @@
-set surround
+" Based on https://github.com/junegunn/dotfiles/blob/3a0e6778c91073d19c37dccdb34a8213811abf03/ideavimrc
+" Note: Idea has special camel motion forward/backward => [w & [b for exclusive, ]w & ]b for inclusive.
+
+let mapleader = " "
+
+set ignorecase smartcase
+set incsearch hlsearch
+set scrolloff=5
+set showmode
+
+set surround 
+
+" Integrate with system clipboard
+" set clipboard=unnamedplus,unnamed
+
+" Moving b/w splits
+nnoremap <leader>h <c-w>h
+nnoremap <leader>l <c-w>l
+nnoremap <leader>k <c-w>k
+nnoremap <leader>j <c-w>j
+nnoremap <leader>w <c-w>w
+nnoremap <c-w><c-c> :action VimWindowClose<cr>
+
+" Faster vertical scroll
+nnoremap <a-j> 15gj
+nnoremap <a-k> 15gk
+
+" Quick macro on q
+nnoremap Q @q
+
+" noremap  <c-f> <c-d>
+" noremap  <c-b> <c-u>
+
+" nnoremap [c :action VcsShowPrevChangeMarker<cr>
+" nnoremap ]c :action VcsShowNextChangeMarker<cr>
+nnoremap [d :action QuickImplementations<cr>
+nnoremap ]d :action QuickJavaDoc<cr>
+nnoremap ]e :action GotoNextError<cr>
+nnoremap [e :action GotoPreviousError<cr>
+
+nnoremap <leader>9  :action Back<cr>
+nnoremap <leader>0  :action Forward<cr>
+
+nnoremap <leader>bb :action ToggleLineBreakpoint<cr>
+nnoremap <leader>br :action ViewBreakpoints<cr>
+
+nnoremap <leader>gc :action GotoClass<cr>
+nnoremap <leader>gf :action GotoFile<cr>
+nnoremap <leader>gs :action GotoSymbol<cr>
+nnoremap <leader>fs :action FileStructurePopup<cr>
+
+nnoremap <leader>ga :action GotoAction<cr>
+nnoremap <leader>gd :action GotoDeclaration<cr>
+nnoremap <leader>ff :action FindInPath<cr>
+nnoremap <leader>fu :action FindUsages<cr>
+nnoremap <leader>su :action ShowUsages<cr>
+
+nnoremap <leader>gi :action GotoImplementation<cr>
+nnoremap <leader>gs :action GotoSuperMethod<cr>
+nnoremap <leader>gt :action GotoTest<cr>
+nnoremap <leader>gr :action GotoRelated<cr>
+nnoremap <leader>gb :action Annotate<cr>
+
+nnoremap <leader>re :action RenameElement<cr>
+nnoremap <leader>rf :action RenameFile<cr>
+
+nnoremap <leader>dd :action Debug<cr>
+nnoremap <leader>dc :action ChooseDebugConfiguration<cr>
+nnoremap <leader>rr :action Run<cr>
+nnoremap <leader>rc :action ChooseRunConfiguration<cr>
+
+nnoremap <leader>tq  :action CloseActiveTab<cr>
+nnoremap <leader>tr  :action ReopenClosedTab<cr>
+nnoremap <leader>tp  :action PinActiveTab<cr>
+nnoremap <leader>tu  :action CloseAllUnpinnedEditors<cr>
+
+
+" Key bindings won't work for some reason
+"set multiple-cursors
+
