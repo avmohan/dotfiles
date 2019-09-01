@@ -33,3 +33,17 @@ let python_highlight_all = 1
 set backspace=indent,eol,start
 
 nnoremap Q @q
+
+let mapleader = " "
+
+" Moving b/w splits
+nnoremap <leader>h <c-w>h
+nnoremap <leader>l <c-w>l
+nnoremap <leader>k <c-w>k
+nnoremap <leader>j <c-w>j
+nnoremap <leader>w <c-w>w
+
+
+" Faster vertical scroll
+nnoremap <a-j> 15gj
+nnoremap <a-k> 15gk
