@@ -47,6 +47,7 @@ nnoremap <leader>br :action ViewBreakpoints<cr>
 nnoremap <leader>gc :action GotoClass<cr>
 nnoremap <leader>gf :action GotoFile<cr>
 nnoremap <leader>gs :action GotoSymbol<cr>
+
 nnoremap <leader>fs :action FileStructurePopup<cr>
 
 nnoremap <leader>ga :action GotoAction<cr>
@@ -56,7 +57,7 @@ nnoremap <leader>fu :action FindUsages<cr>
 nnoremap <leader>su :action ShowUsages<cr>
 
 nnoremap <leader>gi :action GotoImplementation<cr>
-nnoremap <leader>gs :action GotoSuperMethod<cr>
+nnoremap <leader>gu :action GotoSuperMethod<cr> "u for upper, gs taken for symbol
 nnoremap <leader>gt :action GotoTest<cr>
 nnoremap <leader>gr :action GotoRelated<cr>
 nnoremap <leader>gb :action Annotate<cr>
@@ -69,10 +70,11 @@ nnoremap <leader>dc :action ChooseDebugConfiguration<cr>
 nnoremap <leader>rr :action Run<cr>
 nnoremap <leader>rc :action ChooseRunConfiguration<cr>
 
-nnoremap <leader>tq  :action CloseActiveTab<cr>
+nnoremap <leader>tq  :action CloseEditor<cr>
 nnoremap <leader>tr  :action ReopenClosedTab<cr>
 nnoremap <leader>tp  :action PinActiveTab<cr>
 nnoremap <leader>tu  :action CloseAllUnpinnedEditors<cr>
+nnoremap <leader>tQ  :action CloseAllEditors<cr>
 
 
 " Key bindings won't work for some reason
