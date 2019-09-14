@@ -106,8 +106,8 @@ SAVEHIST=100000
 
 # Set editor
 export EDITOR=vi
-export PATH="~/local/bin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/usr/local/opt/curl/bin:/usr/local/opt/openssl/bin:$PATH"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
+export PATH="$HOME/local/bin:$HOME/go/bin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/gnu-tar/libexec/gnubin:/usr/local/opt/curl/bin:/usr/local/opt/openssl/bin:$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:/usr/local/opt/gnu-indent/libexec/gnuman:/usr/local/opt/gnu-tar/libexec/gnuman:/usr/local/opt/grep/libexec/gnuman:/usr/local/opt/gnu-sed/libexec/gnuman:/usr/local/opt/gawk/libexec/gnuman:/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
 
 # Source private stuff
 if [[ -f ~/.dotfiles/private/misc.zsh ]]; then
