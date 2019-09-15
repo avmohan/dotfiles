@@ -10,6 +10,7 @@
     date = local
     decorate = true
     abbrevCommit = true
+	mailmap = true
 
 [alias]
     rb = rebase

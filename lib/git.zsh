@@ -27,7 +27,6 @@ make-pr() {
    local branch="$(git rev-parse --abbrev-ref HEAD)"
    local jira="$(echo $branch | grep -Eo "^[A-Z]+-[0-9]+")" 
    local msg="$(echo $branch | sed -r 's/^[A-Z]+-[0-9]+-(.*)$/\u\1/' | tr '-' ' ')"
-   echo $branch $jira $msg
    hub pull-request -m "[$jira]: $msg" 
 }
 
