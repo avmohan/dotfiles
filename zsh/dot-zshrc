@@ -1,5 +1,6 @@
 # start_time=$(gdate '+%s.%3N')
-export ZPLUG_HOME=/usr/local/opt/zplug
+export BREW_PREFIX=$(brew --prefix)
+export ZPLUG_HOME=$BREW_PREFIX/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 # Get useful stuff from oh-my-zsh libs
@@ -106,8 +107,8 @@ SAVEHIST=100000
 
 # Set editor
 export EDITOR=vi
-export PATH="$HOME/local/bin:$HOME/go/bin:$HOME/opt/google-cloud-sdk/bin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/gnu-tar/libexec/gnubin:/usr/local/opt/curl/bin:/usr/local/opt/openssl/bin:$PATH"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:/usr/local/opt/gnu-indent/libexec/gnuman:/usr/local/opt/gnu-tar/libexec/gnuman:/usr/local/opt/grep/libexec/gnuman:/usr/local/opt/gnu-sed/libexec/gnuman:/usr/local/opt/gawk/libexec/gnuman:/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
+export PATH="$HOME/local/bin:$HOME/go/bin:$HOME/opt/google-cloud-sdk/bin:$BREW_PREFIX/opt/grep/libexec/gnubin:$BREW_PREFIX/opt/coreutils/libexec/gnubin:$BREW_PREFIX/opt/findutils/libexec/gnubin:$BREW_PREFIX/opt/gnu-sed/libexec/gnubin:$BREW_PREFIX/opt/gnu-tar/libexec/gnubin:$BREW_PREFIX/opt/curl/bin:$BREW_PREFIX/opt/openssl/bin:$PATH"
+export MANPATH="$BREW_PREFIX/opt/coreutils/libexec/gnuman:$BREW_PREFIX/opt/gnu-indent/libexec/gnuman:$BREW_PREFIX/opt/gnu-tar/libexec/gnuman:$BREW_PREFIX/opt/grep/libexec/gnuman:$BREW_PREFIX/opt/gnu-sed/libexec/gnuman:$BREW_PREFIX/opt/gawk/libexec/gnuman:$BREW_PREFIX/opt/findutils/libexec/gnuman:$MANPATH"
 
 # Source private stuff
 if [[ -f ~/.dotfiles/private/misc.zsh ]]; then
@@ -131,10 +132,10 @@ export LC_CTYPE=en_US.UTF-8
 source ~/.dotfiles/lib/pushnotify.zsh
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/vault vault
+complete -o nospace -C $BREW_PREFIX/bin/vault vault
 
 # Add kubectx to $PS1
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+source "$BREW_PREFIX/opt/kube-ps1/share/kube-ps1.sh"
 PS1='$(kube_ps1)'$PS1
 
 # pretty print json with color
