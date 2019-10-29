@@ -59,6 +59,9 @@ zplug "plugins/docker-compose", from:oh-my-zsh
 zplug "plugins/kubectl", from:oh-my-zsh
 zplug "plugins/minikube", from:oh-my-zsh
 
+# aws
+zplug "plugins/aws", from:oh-my-zsh
+
 # google, ddg (duckduckgo), github, youtube, maps ... (web search)
 zplug "plugins/websearch", from:oh-my-zsh
 
@@ -70,6 +73,16 @@ zplug "plugins/httpie", from:oh-my-zsh
 zplug "plugins/ssh-agent", from:oh-my-zsh
 zplug "plugins/fzf", from:oh-my-zsh
 
+forgit_log=fglo
+forgit_diff=fgd
+forgit_add=fga
+forgit_reset_head=fgrh
+forgit_ignore=fgi
+forgit_restore=fgcf
+forgit_clean=fgclean
+forgit_stash_show=fgss
+zplug 'wfxr/forgit'
+
 # Suggest command based on recent commands
 zplug "zsh-users/zsh-autosuggestions"
 
@@ -79,10 +92,11 @@ zplug "zsh-users/zsh-completions"
 # Syntax highlighting on commands (green/red)
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
+
 # Pure theme - minimal, fast
 zplug mafredri/zsh-async, from:github, defer:0
 zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
-RPROMPT="[%h] [%D{%H:%M:%S %d-%m-%y}]"
+#RPROMPT="[%h] [%D{%H:%M:%S %d-%m-%y}]"
 
 # st=$(gdate '+%s.%3N')
 zplug load
@@ -107,7 +121,7 @@ SAVEHIST=100000
 
 # Set editor
 export EDITOR=vi
-export PATH="$HOME/local/bin:$HOME/go/bin:$HOME/opt/google-cloud-sdk/bin:$BREW_PREFIX/opt/grep/libexec/gnubin:$BREW_PREFIX/opt/coreutils/libexec/gnubin:$BREW_PREFIX/opt/findutils/libexec/gnubin:$BREW_PREFIX/opt/gnu-sed/libexec/gnubin:$BREW_PREFIX/opt/gnu-tar/libexec/gnubin:$BREW_PREFIX/opt/curl/bin:$BREW_PREFIX/opt/openssl/bin:$PATH"
+export PATH="$HOME/local/bin:$HOME/go/bin:$HOME/opt/google-cloud-sdk/bin:$BREW_PREFIX/opt/grep/libexec/gnubin:$BREW_PREFIX/opt/coreutils/libexec/gnubin:$BREW_PREFIX/opt/findutils/libexec/gnubin:$BREW_PREFIX/opt/gnu-sed/libexec/gnubin:$BREW_PREFIX/opt/gnu-tar/libexec/gnubin:$BREW_PREFIX/opt/curl/bin:$BREW_PREFIX/opt/openssl/bin:/usr/local/opt/protobuf@3.7/bin:$PATH"
 export MANPATH="$BREW_PREFIX/opt/coreutils/libexec/gnuman:$BREW_PREFIX/opt/gnu-indent/libexec/gnuman:$BREW_PREFIX/opt/gnu-tar/libexec/gnuman:$BREW_PREFIX/opt/grep/libexec/gnuman:$BREW_PREFIX/opt/gnu-sed/libexec/gnuman:$BREW_PREFIX/opt/gawk/libexec/gnuman:$BREW_PREFIX/opt/findutils/libexec/gnuman:$MANPATH"
 
 # Source private stuff
@@ -136,8 +150,11 @@ complete -o nospace -C $BREW_PREFIX/bin/vault vault
 
 # Add kubectx to $PS1
 source "$BREW_PREFIX/opt/kube-ps1/share/kube-ps1.sh"
-PS1='$(kube_ps1)'$PS1
+RPROMPT='$(kube_ps1)'$RPROMPT
 
 # pretty print json with color
 alias -g JL=" | jq -C | less -R"
+# same for k8s
+alias -g KJL=" -o json| jq -C | less -R"
 
+source ~/.fzf.zsh

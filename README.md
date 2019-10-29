@@ -1,7 +1,7 @@
 Dotfiles
 ========
 
-Just my dotfiles.
+These are my dotfiles, which I primarily use on OS-X. They're managed using gnu stow.
 
 Installation
 ------------
@@ -22,4 +22,5 @@ Todos
 - Cross platform across OS-X & Ubuntu
 - Remove/Reduce external set-up steps
 - Multiple files in ./private, number them, and import based on numbering order
+- os x defaults write configs
 
