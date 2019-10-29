@@ -45,5 +45,5 @@ nnoremap <leader>w <c-w>w
 
 
 " Faster vertical scroll
-nnoremap <a-j> 15gj
-nnoremap <a-k> 15gk
+nnoremap <M-j> 15j
+nnoremap <M-k> 15k
