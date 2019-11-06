@@ -7,7 +7,7 @@ Installation
 ------------
 - Clone this repo to $HOME, with submodules
 ```
-git clone --recurse-submodules  git@github.com:avmohan/dotfiles.git
+git clone --recurse-submodules  git@github.com:avmohan/dotfiles.git ~/.dotfiles
 ```
 
 - Install gnu-stow and `stow` required folders from $HOME.
