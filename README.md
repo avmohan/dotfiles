@@ -12,8 +12,8 @@ git clone --recurse-submodules  git@github.com:avmohan/dotfiles.git
 
 - Install gnu-stow and `stow` required folders from $HOME.
 ```
-stow -v --dotfiles zsh
-stow -v --dotfiles git
+stow -v zsh
+stow -v git
 ...
 ```
 
