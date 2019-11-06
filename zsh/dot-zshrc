@@ -130,8 +130,6 @@ if [[ -f ~/.dotfiles/private/misc.zsh ]]; then
 fi
 set -o emacs
 
-source ~/.dotfiles/lib/git.zsh
-
 export JAVA_HOME=$(/usr/libexec/java_home -v1.8)
 alias ls='ls --color'
 
@@ -143,6 +141,8 @@ alias testnet='curl -k -s -o /dev/null -w "%{http_code}\n" https://www.google.co
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 
+source ~/.dotfiles/lib/git.zsh
+source ~/.dotfiles/lib/jira.zsh
 source ~/.dotfiles/lib/pushnotify.zsh
 
 autoload -U +X bashcompinit && bashcompinit

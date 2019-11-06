@@ -1,0 +1,4 @@
+endpoint: https://harness.atlassian.net
+user: abhijith.mohan@harness.io
+password-source: keyring
+
