@@ -3,7 +3,8 @@ if [[ -z $BRANCH_PREFIX ]]; then
 fi
 
 if [[ -z $JQL ]]; then
-  JQL='assignee = currentUser() AND status not in ("Not a Bug", Invalid, "Will Not Fix", "Can Not Reproduce", Duplicate, Approved, Rejected, Done) ORDER BY updated DESC'
+  #JQL='assignee = currentUser() AND sprint in openSprints() AND statusCategory != done ORDER BY updated DESC'
+  JQL='assignee = currentUser() AND statusCategory != done ORDER BY updated DESC'
 fi
 
 jdesc() {
@@ -25,7 +26,7 @@ mkpr() {
   local branch="$(git rev-parse --abbrev-ref HEAD)"
   branch="$(echo $branch | sed -r 's/^[a-zA-Z]+\/(.*)/\1/')"
   local jid="$(echo $branch | grep -Eo "^[A-Z]+-[0-9]+")"
-  local msg="$(jira view $jid --gjq 'fields.summary')"
+  local msg="$(jdesc)"
   debug "[$jid]: $msg" "$@"
   hub pull-request -m "[$jid]: $msg" "$@"
 }
