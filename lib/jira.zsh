@@ -26,7 +26,7 @@ mkpr() {
   local branch="$(git rev-parse --abbrev-ref HEAD)"
   branch="$(echo $branch | sed -r 's/^[a-zA-Z]+\/(.*)/\1/')"
   local jid="$(echo $branch | grep -Eo "^[A-Z]+-[0-9]+")"
-  local msg="$(jdesc)"
+  local msg="$(jdesc $jid)"
   debug "[$jid]: $msg" "$@"
   hub pull-request -m "[$jid]: $msg" "$@"
 }
