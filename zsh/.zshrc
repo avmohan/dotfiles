@@ -124,6 +124,11 @@ export EDITOR=vi
 export PATH="$HOME/local/bin:$HOME/go/bin:$HOME/opt/google-cloud-sdk/bin:$BREW_PREFIX/opt/grep/libexec/gnubin:$BREW_PREFIX/opt/coreutils/libexec/gnubin:$BREW_PREFIX/opt/findutils/libexec/gnubin:$BREW_PREFIX/opt/gnu-sed/libexec/gnubin:$BREW_PREFIX/opt/gnu-tar/libexec/gnubin:$BREW_PREFIX/opt/curl/bin:$BREW_PREFIX/opt/openssl/bin:/usr/local/opt/protobuf@3.7/bin:$PATH"
 export MANPATH="$BREW_PREFIX/opt/coreutils/libexec/gnuman:$BREW_PREFIX/opt/gnu-indent/libexec/gnuman:$BREW_PREFIX/opt/gnu-tar/libexec/gnuman:$BREW_PREFIX/opt/grep/libexec/gnuman:$BREW_PREFIX/opt/gnu-sed/libexec/gnuman:$BREW_PREFIX/opt/gawk/libexec/gnuman:$BREW_PREFIX/opt/findutils/libexec/gnuman:$MANPATH"
 
+# Source work stuff
+if [[ -f ~/.dotfiles/work/init.zsh ]]; then
+  . ~/.dotfiles/work/init.zsh
+fi
+
 # Source private stuff
 if [[ -f ~/.dotfiles/private/misc.zsh ]]; then
   . ~/.dotfiles/private/misc.zsh

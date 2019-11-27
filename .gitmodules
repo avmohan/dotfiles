@@ -34,3 +34,6 @@
 [submodule "hammerspoon/.hammerspoon"]
 	path = hammerspoon/.hammerspoon
 	url = git@github.com:avmohan/awesome-hammerspoon.git
+[submodule "work"]
+	path = work
+	url = git@github.com:wings-software/dotfiles.git
