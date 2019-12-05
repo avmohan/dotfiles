@@ -155,7 +155,7 @@ complete -o nospace -C $BREW_PREFIX/bin/vault vault
 
 # Add kubectx to $PS1
 source "$BREW_PREFIX/opt/kube-ps1/share/kube-ps1.sh"
-RPROMPT='$(kube_ps1)'$RPROMPT
+PROMPT='$(kube_ps1)'$PROMPT
 
 # pretty print json with color
 alias -g JL=" | jq -C | less -R"
