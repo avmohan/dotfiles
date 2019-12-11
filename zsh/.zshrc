@@ -163,3 +163,4 @@ alias -g JL=" | jq -C | less -R"
 alias -g KJL=" -o json| jq -C | less -R"
 
 source ~/.fzf.zsh
+kubeon
