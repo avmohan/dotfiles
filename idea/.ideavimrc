@@ -47,6 +47,7 @@ nnoremap <leader>br :action ViewBreakpoints<cr>
 nnoremap <leader>gc :action GotoClass<cr>
 nnoremap <leader>gf :action GotoFile<cr>
 nnoremap <leader>gs :action GotoSymbol<cr>
+nnoremap <leader>gm :action GoToRequestMapping<cr>
 
 nnoremap <leader>fs :action FileStructurePopup<cr>
 
