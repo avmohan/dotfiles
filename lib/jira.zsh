@@ -10,7 +10,7 @@ if [[ -z $JQL ]]; then
 fi
 
 jls() {
-  jira list --query "$JQL" | fzf
+  jira list --query "$JQL" | fzf --reverse
 }
 
 jdesc() {
