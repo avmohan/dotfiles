@@ -16,6 +16,7 @@ alias glns='git log --name-status'
 alias glo="git log --oneline"
 alias gg='git log --oneline --abbrev-commit --all --graph --decorate'
 alias gwip='git add -A && git commit -m wip'
+alias gdiff='git diff --no-index'
 
 glol() {
   git log --color=always --pretty=format:'%C(yellow)%h|%Cred%ad|%Cblue%aN|%Cgreen%d %Creset%s' $* | column -ts"|" | less -rS
