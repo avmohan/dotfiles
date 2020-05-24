@@ -83,6 +83,8 @@ nnoremap <leader>tp  :action PinActiveTab<cr>
 nnoremap <leader>tu  :action CloseAllUnpinnedEditors<cr>
 nnoremap <leader>tQ  :action CloseAllEditors<cr>
 
+nnoremap <leader>aj  :action AceAction<cr>
+
 
 " Key bindings won't work for some reason
 "set multiple-cursors
