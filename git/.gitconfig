@@ -17,7 +17,7 @@
     cp = cherry-pick
     psu = push origin -u HEAD
     hide = update-index --assume-unchanged
-    show = update-index --no-assume-unchanged
+    unhide = update-index --no-assume-unchanged
     patch = !git --no-pager diff --no-color
     spr = !hub pr show -h $(git symbolic-ref HEAD)
 

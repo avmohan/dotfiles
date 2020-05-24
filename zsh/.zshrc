@@ -1,4 +1,4 @@
-# start_time=$(gdate '+%s.%3N')
+start_time=$(gdate '+%s.%3N')
 export BREW_PREFIX=$(brew --prefix)
 export ZPLUG_HOME=$BREW_PREFIX/opt/zplug
 source $ZPLUG_HOME/init.zsh
@@ -96,17 +96,18 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 # Pure theme - minimal, fast
 zplug mafredri/zsh-async, from:github, defer:0
 zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
-#RPROMPT="[%h] [%D{%H:%M:%S %d-%m-%y}]"
+# Add ts to right
+# RPROMPT="[%h] [%D{%H:%M:%S %d-%m-%y}]"
 
-# st=$(gdate '+%s.%3N')
+st=$(gdate '+%s.%3N')
 zplug load
-# et=$(gdate '+%s.%3N')
-# echo "load time=" $(echo $et - $st | bc)
+et=$(gdate '+%s.%3N')
+#echo "load time=" $(echo $et - $st | bc)
 
-# end_time=$(gdate '+%s.%3N')
-# time_taken=$(echo $end_time - $start_time | bc)
-# echo "Zplug Loaded in $time_taken seconds"
-# unset start_time end_time time_taken
+end_time=$(gdate '+%s.%3N')
+time_taken=$(echo $end_time - $start_time | bc)
+#echo "Zplug Loaded in $time_taken seconds"
+#unset start_time end_time time_taken
 
 # Useful for general debugging
 debug() {
@@ -121,7 +122,7 @@ SAVEHIST=100000
 
 # Set editor
 export EDITOR=vi
-export PATH="$HOME/local/bin:$HOME/go/bin:$HOME/opt/google-cloud-sdk/bin:$BREW_PREFIX/opt/grep/libexec/gnubin:$BREW_PREFIX/opt/coreutils/libexec/gnubin:$BREW_PREFIX/opt/findutils/libexec/gnubin:$BREW_PREFIX/opt/gnu-sed/libexec/gnubin:$BREW_PREFIX/opt/gnu-tar/libexec/gnubin:$BREW_PREFIX/opt/curl/bin:$BREW_PREFIX/opt/openssl/bin:/usr/local/opt/protobuf@3.7/bin:$PATH"
+export PATH="$HOME/local/bin:$HOME/go/bin:$HOME/opt/google-cloud-sdk/bin:/usr/local/opt/postgresql@11/bin:$BREW_PREFIX/opt/grep/libexec/gnubin:$BREW_PREFIX/opt/coreutils/libexec/gnubin:$BREW_PREFIX/opt/findutils/libexec/gnubin:$BREW_PREFIX/opt/gnu-sed/libexec/gnubin:$BREW_PREFIX/opt/gnu-tar/libexec/gnubin:$BREW_PREFIX/opt/curl/bin:$BREW_PREFIX/opt/openssl/bin:/usr/local/opt/protobuf@3.7/bin:$PATH"
 export MANPATH="$BREW_PREFIX/opt/coreutils/libexec/gnuman:$BREW_PREFIX/opt/gnu-indent/libexec/gnuman:$BREW_PREFIX/opt/gnu-tar/libexec/gnuman:$BREW_PREFIX/opt/grep/libexec/gnuman:$BREW_PREFIX/opt/gnu-sed/libexec/gnuman:$BREW_PREFIX/opt/gawk/libexec/gnuman:$BREW_PREFIX/opt/findutils/libexec/gnuman:$MANPATH"
 
 # Source work stuff
@@ -161,6 +162,15 @@ PROMPT='$(kube_ps1)'$PROMPT
 alias -g JL=" | jq -C | less -R"
 # same for k8s
 alias -g KJL=" -o json| jq -C | less -R"
+# yaml
+alias -g KYL=" -o yaml| yq -C read - | less -R"
 
 source ~/.fzf.zsh
-kubeon
+
+end_time=$(gdate '+%s.%3N')
+time_taken=$(echo $end_time - $start_time | bc)
+#echo "Total time taken = $time_taken seconds"
+
+uts() {
+  date -d @$(echo "$1" | cut -c -10)
+}

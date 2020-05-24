@@ -15,10 +15,16 @@ alias glp='git log -p'
 alias glns='git log --name-status'
 alias glo="git log --oneline"
 alias gg='git log --oneline --abbrev-commit --all --graph --decorate'
-alias gwip='git add -A && git commit -m wip'
+alias gwip='git add -A && git commit -m wip --no-verify'
 alias gdiff='git diff --no-index'
+alias gundo='git undo'
+alias gbb='gco $(gbr|fzf --reverse)'
+alias gbbr='gco $(gbr --remote |fzf --reverse)'
 
 glol() {
   git log --color=always --pretty=format:'%C(yellow)%h|%Cred%ad|%Cblue%aN|%Cgreen%d %Creset%s' $* | column -ts"|" | less -rS
 }
 
+g_clean_prs() {
+  git branch | grep -P '^\s+pr/\d+' | xargs git branch -D
+}
