@@ -52,7 +52,7 @@ nnoremap <leader>br :action ViewBreakpoints<cr>
 
 nnoremap <leader>gc :action GotoClass<cr>
 nnoremap <leader>gf :action GotoFile<cr>
-nnoremap <leader>gs :action GotoSymbol<cr>
+nnoremap <leader>gy :action GotoSymbol<cr>
 nnoremap <leader>gm :action GoToRequestMapping<cr>
 
 nnoremap <leader>fs :action FileStructurePopup<cr>
@@ -64,7 +64,7 @@ nnoremap <leader>fu :action FindUsages<cr>
 nnoremap <leader>su :action ShowUsages<cr>
 
 nnoremap <leader>gi :action GotoImplementation<cr>
-nnoremap <leader>gu :action GotoSuperMethod<cr> "u for upper, gs taken for symbol
+nnoremap <leader>gs :action GotoSuperMethod<cr>
 nnoremap <leader>gt :action GotoTest<cr>
 nnoremap <leader>gr :action GotoRelated<cr>
 nnoremap <leader>gb :action Annotate<cr>
