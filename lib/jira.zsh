@@ -1,1 +1,1 @@
-../work/jira.zsh
+../work/jira.sh
