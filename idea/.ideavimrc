@@ -21,6 +21,12 @@ nnoremap <leader>j <c-w>j
 nnoremap <leader>w <c-w>w
 nnoremap <c-w><c-c> :action VimWindowClose<cr>
 
+" Shifting b/w splits
+nnoremap <leader>H :action TabShiftActions.ShiftLeft<cr>
+nnoremap <leader>L :action TabShiftActions.ShiftRight<cr>
+nnoremap <leader>K :action TabShiftActions.ShiftUp<cr>
+nnoremap <leader>J :action TabShiftActions.ShiftDown<cr>
+
 " Faster vertical scroll
 nnoremap <a-j> 15gj
 nnoremap <a-k> 15gk
