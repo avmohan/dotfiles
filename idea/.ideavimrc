@@ -34,11 +34,6 @@ nnoremap <a-k> 15gk
 " Quick macro on q
 nnoremap Q @q
 
-" noremap  <c-f> <c-d>
-" noremap  <c-b> <c-u>
-
-" nnoremap [c :action VcsShowPrevChangeMarker<cr>
-" nnoremap ]c :action VcsShowNextChangeMarker<cr>
 nnoremap [d :action QuickImplementations<cr>
 nnoremap ]d :action QuickJavaDoc<cr>
 nnoremap ]e :action GotoNextError<cr>
@@ -85,6 +80,7 @@ nnoremap <leader>tQ  :action CloseAllEditors<cr>
 
 nnoremap <leader>aj  :action AceAction<cr>
 
+set argtextobj
 
 " Key bindings won't work for some reason
 "set multiple-cursors
