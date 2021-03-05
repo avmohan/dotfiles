@@ -8,7 +8,15 @@ set incsearch hlsearch
 set scrolloff=5
 set showmode
 
+set visualbell
+set noerrorbells
+
+set easymotion 
 set surround 
+" set multiple-cursors
+set argtextobj
+set vim-exchange
+set highlightedyank
 
 " Integrate with system clipboard
 " set clipboard=unnamedplus,unnamed
@@ -79,9 +87,4 @@ nnoremap <leader>tu  :action CloseAllUnpinnedEditors<cr>
 nnoremap <leader>tQ  :action CloseAllEditors<cr>
 
 nnoremap <leader>aj  :action AceAction<cr>
-
-set argtextobj
-
-" Key bindings won't work for some reason
-"set multiple-cursors
 
