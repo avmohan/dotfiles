@@ -6,3 +6,10 @@
 
 # vim swap files
 *.swp
+
+/.gtm/
+
+/.classpath
+/.factorypath
+/.project
+/.settings/

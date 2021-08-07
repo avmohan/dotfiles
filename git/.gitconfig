@@ -10,7 +10,6 @@
     date = local
     decorate = true
     abbrevCommit = true
-	mailmap = true
 
 [alias]
     rb = rebase
@@ -44,7 +43,7 @@
     enabled = true
 
 [rebase]
-	autoSquash = true
+    autoSquash = true
 
 # For diff-so-fancy
 [color]
