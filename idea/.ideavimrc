@@ -3,25 +3,35 @@
 
 let mapleader = " "
 
+" Ignore case by default, consider if using any capital letter
 set ignorecase smartcase
+" Search incrementally, highlight all occurrences
 set incsearch hlsearch
+" Scroll with offset
 set scrolloff=5
+" Show mode in status bar
 set showmode
-
+" Use visual bells,
 set visualbell
+" Disable error bells
 set noerrorbells
 
-set easymotion 
-set surround 
-" set multiple-cursors
+" Useful plugins
+set surround
 set argtextobj
-set vim-exchange
+set exchange
 set highlightedyank
+set easymotion
+set textobj-entire
+" set multiple-cursors
+" set NerdTree
+" set commentary
+" set ReplaceWithRegister
 
 " Integrate with system clipboard
 " set clipboard=unnamedplus,unnamed
 
-" Moving b/w splits
+" Move focus b/w splits
 nnoremap <leader>h <c-w>h
 nnoremap <leader>l <c-w>l
 nnoremap <leader>k <c-w>k
@@ -29,7 +39,7 @@ nnoremap <leader>j <c-w>j
 nnoremap <leader>w <c-w>w
 nnoremap <c-w><c-c> :action VimWindowClose<cr>
 
-" Shifting b/w splits
+" Shift active buffer b/w splits
 nnoremap <leader>H :action TabShiftActions.ShiftLeft<cr>
 nnoremap <leader>L :action TabShiftActions.ShiftRight<cr>
 nnoremap <leader>K :action TabShiftActions.ShiftUp<cr>
@@ -39,7 +49,7 @@ nnoremap <leader>J :action TabShiftActions.ShiftDown<cr>
 nnoremap <a-j> 15gj
 nnoremap <a-k> 15gk
 
-" Quick macro on q
+" Quick macro on q (qq records, Q executes)
 nnoremap Q @q
 
 nnoremap [d :action QuickImplementations<cr>
@@ -47,6 +57,13 @@ nnoremap ]d :action QuickJavaDoc<cr>
 nnoremap ]e :action GotoNextError<cr>
 nnoremap [e :action GotoPreviousError<cr>
 
+" Switch between opened project windows
+nnoremap [p :action PreviousProjectWindow<cr>
+nnoremap ]p :action NextProjectWindow<cr>
+nnoremap <leader>gp :action GoToProject<cr>
+
+nnoremap [[  :action Back<cr>
+nnoremap ]]  :action Forward<cr>
 nnoremap <leader>9  :action Back<cr>
 nnoremap <leader>0  :action Forward<cr>
 
@@ -87,4 +104,3 @@ nnoremap <leader>tu  :action CloseAllUnpinnedEditors<cr>
 nnoremap <leader>tQ  :action CloseAllEditors<cr>
 
 nnoremap <leader>aj  :action AceAction<cr>
-
