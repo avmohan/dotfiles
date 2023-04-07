@@ -3,30 +3,86 @@
 
 let mapleader = " "
 
-" Ignore case by default, consider if using any capital letter
+" Use \ as prefix for uncommon actions
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+nnoremap \v :action VimFindActionIdAction<CR>
+nnoremap \wd :action ToggleDistractionFreeMode<CR>
+nnoremap \wp :action TogglePresentationMode<CR>
+nnoremap \wz :action ToggleZenMode<CR>
+nnoremap \wf :action ToggleFullScreen<CR>
+nnoremap \\\ :action HideAllWindows<CR>
+nnoremap \t :action ChangeLaf<CR>
+nnoremap \l :set invrelativenumber<CR>
+nnoremap \g :action CodeGlance.disable<CR>
+nnoremap \] :action EditorIncreaseFontSizeGlobal<CR>
+nnoremap \[ :action EditorDecreaseFontSizeGlobal<CR>
+nnoremap \= :action EditorResetFontSize<CR>
+nnoremap \wf :action ToggleFullScreen<CR>
+nnoremap \mr :action Maven.Reimport<CR>
+
+" Refactorings
+nnoremap <leader>rr :action Refactorings.QuickListPopupAction<CR>
+nnoremap <leader>rv :action IntroduceVariable<CR>
+nnoremap <leader>rc :action IntroduceConstant<CR>
+nnoremap <leader>rp :action IntroduceParameter<CR>
+nnoremap <leader>re :action RenameElement<CR>
+nnoremap <leader>rf :action RenameFile<CR>
+
+nnoremap <leader>o :action OptimizeImports<CR>
+nnoremap <leader>= :action ReformatCode<CR>
+
+
+" Show line number in current line, but relative numbers in other lines
+set relativenumber number
+
+" Show hints for 5 sec
+set which-key timeoutlen=5000
+
+" Search ignores case by default, consider if using any capital letter
 set ignorecase smartcase
+
 " Search incrementally, highlight all occurrences
 set incsearch hlsearch
+
 " Scroll with offset
-set scrolloff=5
+set scrolloff=10
+
 " Show mode in status bar
 set showmode
+
 " Use visual bells,
 set visualbell
-" Disable error bells
-set noerrorbells
 
 " Useful plugins
-set surround
-set argtextobj
-set exchange
-set highlightedyank
 set easymotion
+set sneak
+set NERDTree
+set surround
+set multiple-cursors
+set commentary
+set ReplaceWithRegister
+set argtextobj
+let g:argtextobj_pairs="(:),{:},<:>,[:]"
+set exchange
 set textobj-entire
-" set multiple-cursors
-" set NerdTree
-" set commentary
-" set ReplaceWithRegister
+set highlightedyank
+set vim-paragraph-motion
+set textobj-indent
+set matchit
+set quickscope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+let g:qs_primary_color = '#e64553'
+let g:qs_secondary_color = '#fe640b'
+let g:qs_accepted_chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
+  \ 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G',
+  \ 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+  \ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '{', '}', '[', ']', '<', '>']
+
+
+set idearefactormode=keep
+set ideajoin
+
 
 " Integrate with system clipboard
 " set clipboard=unnamedplus,unnamed
@@ -37,70 +93,84 @@ nnoremap <leader>l <c-w>l
 nnoremap <leader>k <c-w>k
 nnoremap <leader>j <c-w>j
 nnoremap <leader>w <c-w>w
-nnoremap <c-w><c-c> :action VimWindowClose<cr>
+
 
 " Shift active buffer b/w splits
-nnoremap <leader>H :action TabShiftActions.ShiftLeft<cr>
-nnoremap <leader>L :action TabShiftActions.ShiftRight<cr>
-nnoremap <leader>K :action TabShiftActions.ShiftUp<cr>
-nnoremap <leader>J :action TabShiftActions.ShiftDown<cr>
+nnoremap <leader>H :action TabShiftActions.ShiftLeft<CR>
+nnoremap <leader>L :action TabShiftActions.ShiftRight<CR>
+nnoremap <leader>K :action TabShiftActions.ShiftUp<CR>
+nnoremap <leader>J :action TabShiftActions.ShiftDown<CR>
+
+" Resize splits
+nnoremap <c-l> :action TabShiftActions.StretchRight<CR>
+nnoremap <c-h> :action TabShiftActions.StretchLeft<CR>
+nnoremap <c-j> :action TabShiftActions.StretchDown<CR>
+nnoremap <c-k> :action TabShiftActions.StretchUp<CR>
+nnoremap <c-=> :action tabshifter.Actions.EqualSizeSplit<CR>
+nnoremap <leader>m :action TabShiftActions.ToggleMaximizeRestore<CR>
 
 " Faster vertical scroll
-nnoremap <a-j> 15gj
-nnoremap <a-k> 15gk
+" nnoremap <a-j> 15gj
+" nnoremap <a-k> 15gk
 
-" Quick macro on q (qq records, Q executes)
+" Quick macro on q (so qq records in q, Q executes from q)
 nnoremap Q @q
 
-nnoremap [d :action QuickImplementations<cr>
-nnoremap ]d :action QuickJavaDoc<cr>
-nnoremap ]e :action GotoNextError<cr>
-nnoremap [e :action GotoPreviousError<cr>
+nnoremap [d :action QuickImplementations<CR>
+nnoremap ]d :action QuickJavaDoc<CR>
+nnoremap ]e :action GotoNextError<CR>
+nnoremap [e :action GotoPreviousError<CR>
 
 " Switch between opened project windows
-nnoremap [p :action PreviousProjectWindow<cr>
-nnoremap ]p :action NextProjectWindow<cr>
-nnoremap <leader>gp :action GoToProject<cr>
+nnoremap [p :action PreviousProjectWindow<CR>
+nnoremap ]p :action NextProjectWindow<CR>
+nnoremap <leader>gp :action GoToProject<CR>
+" nnoremap <leader>gp :action ManageRecentProjects<CR>
 
-nnoremap [[  :action Back<cr>
-nnoremap ]]  :action Forward<cr>
-nnoremap <leader>9  :action Back<cr>
-nnoremap <leader>0  :action Forward<cr>
+nnoremap [[  :action Back<CR>
+nnoremap ]]  :action Forward<CR>
 
-nnoremap <leader>bb :action ToggleLineBreakpoint<cr>
-nnoremap <leader>br :action ViewBreakpoints<cr>
+nnoremap <leader>bb :action ToggleLineBreakpoint<CR>
+nnoremap <leader>bv :action ViewBreakpoints<CR>
 
-nnoremap <leader>gc :action GotoClass<cr>
-nnoremap <leader>gf :action GotoFile<cr>
-nnoremap <leader>gy :action GotoSymbol<cr>
-nnoremap <leader>gm :action GoToRequestMapping<cr>
+nnoremap <leader>ga :action GotoAction<CR>
+nnoremap <leader>gc :action GotoClass<CR>
+nnoremap <leader>gf :action GotoFile<CR>
+" gs taken for supermethod
+nnoremap <leader>gy :action GotoSymbol<CR>
+nnoremap <leader>gm :action GoToRequestMapping<CR>
 
-nnoremap <leader>fs :action FileStructurePopup<cr>
+nnoremap <leader>ge :action RecentFiles<CR>
+nnoremap <leader>gl :action RecentLocations<CR>
 
-nnoremap <leader>ga :action GotoAction<cr>
-nnoremap <leader>gd :action GotoDeclaration<cr>
-nnoremap <leader>ff :action FindInPath<cr>
-nnoremap <leader>fu :action FindUsages<cr>
-nnoremap <leader>su :action ShowUsages<cr>
+nnoremap <leader>fs :action FileStructurePopup<CR>
 
-nnoremap <leader>gi :action GotoImplementation<cr>
-nnoremap <leader>gs :action GotoSuperMethod<cr>
-nnoremap <leader>gt :action GotoTest<cr>
-nnoremap <leader>gr :action GotoRelated<cr>
-nnoremap <leader>gb :action Annotate<cr>
+nnoremap <leader>gd :action GotoDeclaration<CR>
+nnoremap <leader>ff :action FindInPath<CR>
+nnoremap <leader>fu :action FindUsages<CR>
+nnoremap <leader>su :action ShowUsages<CR>
 
-nnoremap <leader>re :action RenameElement<cr>
-nnoremap <leader>rf :action RenameFile<cr>
+nnoremap <leader>gi :action GotoImplementation<CR>
+nnoremap <leader>gs :action GotoSuperMethod<CR>
+nnoremap <leader>gt :action GotoTest<CR>
+nnoremap <leader>gr :action GotoRelated<CR>
+nnoremap <leader>gb :action Annotate<CR>
 
-nnoremap <leader>dd :action Debug<cr>
-nnoremap <leader>dc :action ChooseDebugConfiguration<cr>
-nnoremap <leader>rr :action Run<cr>
-nnoremap <leader>rc :action ChooseRunConfiguration<cr>
+" nnoremap <leader>dd :action Debug<CR>
+nnoremap <leader>dc :action ChooseDebugConfiguration<CR>
+nnoremap <leader>dm :action XDebugger.MuteBreakpoints<CR>
+nnoremap <leader>df :action RerunFailedTests<CR>
 
-nnoremap <leader>tq  :action CloseEditor<cr>
-nnoremap <leader>tr  :action ReopenClosedTab<cr>
-nnoremap <leader>tp  :action PinActiveTab<cr>
-nnoremap <leader>tu  :action CloseAllUnpinnedEditors<cr>
-nnoremap <leader>tQ  :action CloseAllEditors<cr>
+nnoremap <leader>tq  :action CloseEditor<CR>
+nnoremap <leader>tr  :action ReopenClosedTab<CR>
+nnoremap <leader>tp  :action PinActiveTab<CR>
+nnoremap <leader>tu  :action CloseAllUnpinnedEditors<CR>
+nnoremap <leader>tQ  :action CloseAllEditors<CR>
 
-nnoremap <leader>aj  :action AceAction<cr>
+nnoremap <leader>aj  :action AceAction<CR>
+
+nnoremap <leader>/  :action ShowErrorDescription<CR>
+
+nnoremap <leader>i  :action Generate<CR>
+
+:action VimFindActionIdAction<CR>

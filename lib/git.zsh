@@ -20,6 +20,7 @@ alias gdiff='git diff --no-index'
 alias gundo='git undo'
 alias gbb='gco $(gbr|fzf --reverse)'
 alias gbbr='gco $(gbr --remote |fzf --reverse)'
+alias gbrc='git branch --show-current | pbcopy'
 
 glol() {
   git log --color=always --pretty=format:'%C(yellow)%h|%Cred%ad|%Cblue%aN|%Cgreen%d %Creset%s' $* | column -ts"|" | less -rS
