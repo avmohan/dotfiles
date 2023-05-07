@@ -1,176 +1,88 @@
-start_time=$(gdate '+%s.%3N')
-export BREW_PREFIX=$(brew --prefix)
-export ZPLUG_HOME=$BREW_PREFIX/opt/zplug
-source $ZPLUG_HOME/init.zsh
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-# Get useful stuff from oh-my-zsh libs
-zplug "lib/completion", from:oh-my-zsh
-zplug "lib/clipboard", from:oh-my-zsh
-zplug "lib/directories", from:oh-my-zsh
-zplug "lib/history", from:oh-my-zsh
-zplug "lib/keybindings", from:oh-my-zsh
-zplug "lib/termsupport", from:oh-my-zsh
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
-# Plugins (in alphabetical order)
-# bgnotify <title> <message> to issue notification
-zplug "plugins/bgnotify", from:oh-my-zsh
-
-# Colors in man pages
-zplug "plugins/colored-man-pages", from:oh-my-zsh
-
-# Some common aliases (TODO: Learn these)
-zplug "plugins/common-aliases", from:oh-my-zsh
-
-# Copy current commandline entry to clipboard with ctrl-o
-zplug "plugins/copybuffer", from:oh-my-zsh
-
-# Copy pwd to cliboard
-zplug "plugins/copydir", from:oh-my-zsh
-
-# Some osx related stuff (like ofd, cdf, hidefiles, showfiles, man-preview)
-zplug "plugins/osx", from:oh-my-zsh
-
-# Extract any directory with extract
-zplug "plugins/extract", from:oh-my-zsh
-
-# Load fasd
-zplug "plugins/fasd", from:oh-my-zsh
-
-# Completions for git-extras
-zplug "plugins/git-extras", from:oh-my-zsh
-
-# Maven integration
-zplug "plugins/mvn", from:oh-my-zsh
-
-# pyclean, pygrep, pyfind
-zplug "plugins/python", from:oh-my-zsh
-
-# Completions for pip
-zplug "plugins/pip", from:oh-my-zsh
-
-# vagrant completions
-zplug "plugins/vagrant", from:oh-my-zsh
-
-# docker completions
-zplug "plugins/docker", from:oh-my-zsh
-zplug "plugins/docker-compose", from:oh-my-zsh
-
-# kubernetes & minikube completions
-zplug "plugins/kubectl", from:oh-my-zsh
-zplug "plugins/minikube", from:oh-my-zsh
-
-# aws
-zplug "plugins/aws", from:oh-my-zsh
-
-# google, ddg (duckduckgo), github, youtube, maps ... (web search)
-zplug "plugins/websearch", from:oh-my-zsh
-
-zplug "plugins/brew", from:oh-my-zsh
-zplug "plugins/vscode", from:oh-my-zsh
-zplug "plugins/urltools", from:oh-my-zsh
-zplug "plugins/tmux", from:oh-my-zsh
-zplug "plugins/httpie", from:oh-my-zsh
-zplug "plugins/ssh-agent", from:oh-my-zsh
-zplug "plugins/fzf", from:oh-my-zsh
-
-forgit_log=fglo
-forgit_diff=fgd
-forgit_add=fga
-forgit_reset_head=fgrh
-forgit_ignore=fgi
-forgit_restore=fgcf
-forgit_clean=fgclean
-forgit_stash_show=fgss
-zplug 'wfxr/forgit'
-
-# Suggest command based on recent commands
-zplug "zsh-users/zsh-autosuggestions"
-
-# Get zsh completions for a bunch of programs
-zplug "zsh-users/zsh-completions"
-
-# Syntax highlighting on commands (green/red)
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
 
-# Pure theme - minimal, fast
-zplug mafredri/zsh-async, from:github, defer:0
-zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
-# Add ts to right
-# RPROMPT="[%h] [%D{%H:%M:%S %d-%m-%y}]"
+zinit ice depth"1" # git clone depth
+zinit light romkatv/powerlevel10k
 
-st=$(gdate '+%s.%3N')
-zplug load
-et=$(gdate '+%s.%3N')
-#echo "load time=" $(echo $et - $st | bc)
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
+zinit light zdharma-continuum/fast-syntax-highlighting
 
-end_time=$(gdate '+%s.%3N')
-time_taken=$(echo $end_time - $start_time | bc)
-#echo "Zplug Loaded in $time_taken seconds"
-#unset start_time end_time time_taken
+zinit snippet OMZL::clipboard.zsh
+zinit snippet OMZL::directories.zsh
+zinit snippet OMZL::grep.zsh
 
-# Useful for general debugging
-debug() {
-  if [[ ! -z $AVMOHAN_DEBUG ]]; then
-    echo $*
-  fi
-}
+HIST_STAMPS="yyyy-mm-dd"
+zinit snippet OMZL::history.zsh
 
-# Super large history
-HISTSIZE=100000
-SAVEHIST=100000
+zinit snippet OMZP::bgnotify
+zinit snippet OMZP::colored-man-pages
+zinit snippet OMZP::fasd
+zinit snippet OMZP::fzf
+zinit snippet OMZP::mvn
+zinit snippet OMZP::kubectl
+zinit snippet OMZP::jira
+zinit snippet OMZP::gnu-utils
+zinit snippet OMZP::docker
+zinit snippet OMZP::common-aliases
+zinit snippet OMZP::copybuffer
+zinit snippet OMZP::copyfile
+zinit snippet OMZP::copypath
+zinit snippet OMZP::extract
+zinit snippet OMZP::git-extras
+zinit snippet OMZP::vscode
+zinit snippet OMZP::urltools
 
-# Set editor
-export EDITOR=vi
-export PATH="$HOME/local/bin:$HOME/go/bin:$HOME/opt/google-cloud-sdk/bin:/usr/local/opt/postgresql@11/bin:$BREW_PREFIX/opt/grep/libexec/gnubin:$BREW_PREFIX/opt/coreutils/libexec/gnubin:$BREW_PREFIX/opt/findutils/libexec/gnubin:$BREW_PREFIX/opt/gnu-sed/libexec/gnubin:$BREW_PREFIX/opt/gnu-tar/libexec/gnubin:$BREW_PREFIX/opt/curl/bin:$BREW_PREFIX/opt/openssl/bin:/usr/local/opt/protobuf@3.7/bin:$PATH"
-export MANPATH="$BREW_PREFIX/opt/coreutils/libexec/gnuman:$BREW_PREFIX/opt/gnu-indent/libexec/gnuman:$BREW_PREFIX/opt/gnu-tar/libexec/gnuman:$BREW_PREFIX/opt/grep/libexec/gnuman:$BREW_PREFIX/opt/gnu-sed/libexec/gnuman:$BREW_PREFIX/opt/gawk/libexec/gnuman:$BREW_PREFIX/opt/findutils/libexec/gnuman:$MANPATH"
+zinit ice as"program" cp"httpstat.sh -> httpstat" pick"httpstat"
+zinit light b4b4r07/httpstat
 
-# Source work stuff
+# forgit_log=fglo
+# forgit_diff=fgd
+# forgit_add=fga
+# forgit_reset_head=fgrh
+# forgit_ignore=fgi
+# forgit_restore=fgcf
+# forgit_clean=fgclean
+# forgit_stash_show=fgss
+# zinit load wfxr/forgit
+
 if [[ -f ~/.dotfiles/work/init.zsh ]]; then
   . ~/.dotfiles/work/init.zsh
 fi
 
-# Source private stuff
 if [[ -f ~/.dotfiles/private/misc.zsh ]]; then
   . ~/.dotfiles/private/misc.zsh
 fi
-set -o emacs
-
-export JAVA_HOME=$(/usr/libexec/java_home -v1.8)
-alias ls='ls --color'
-
-# Test internet connectivity (GET google and check response status)
-alias testnet='curl -k -s -o /dev/null -w "%{http_code}\n" https://www.google.com'
-
-# Locale handling code
-# TODO: Fix this properly
-export LANG=en_US.UTF-8
-export LC_CTYPE=en_US.UTF-8
 
 source ~/.dotfiles/lib/git.zsh
-source ~/.dotfiles/lib/jira.zsh
 source ~/.dotfiles/lib/pushnotify.zsh
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C $BREW_PREFIX/bin/vault vault
-
-# Add kubectx to $PS1
-source "$BREW_PREFIX/opt/kube-ps1/share/kube-ps1.sh"
-PROMPT='$(kube_ps1)'$PROMPT
 
 # pretty print json with color
 alias -g JL=" | jq -C | less -R"
+# same for yaml
+alias -g YL=" | yq -C - | less -R"
 # same for k8s
-alias -g KJL=" -o json| jq -C | less -R"
+alias -g KJL=" -o json JL"
 # yaml
-alias -g KYL=" -o yaml| yq -C read - | less -R"
+alias -g KYL=" -o yaml YL"
 
-source ~/.fzf.zsh
 
-end_time=$(gdate '+%s.%3N')
-time_taken=$(echo $end_time - $start_time | bc)
-#echo "Total time taken = $time_taken seconds"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+zinit snippet OMZP::sdk
 
-uts() {
-  date -d @$(echo "$1" | cut -c -10)
-}
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
