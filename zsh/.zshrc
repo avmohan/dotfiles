@@ -45,6 +45,8 @@ zinit snippet OMZP::extract
 zinit snippet OMZP::git-extras
 zinit snippet OMZP::vscode
 zinit snippet OMZP::urltools
+# zinit snippet OMZP::macos
+# zinit snippet OMZP::ripgrep
 
 zinit ice as"program" cp"httpstat.sh -> httpstat" pick"httpstat"
 zinit light b4b4r07/httpstat
