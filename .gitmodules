@@ -34,3 +34,24 @@
 [submodule "hammerspoon/.hammerspoon"]
 	path = hammerspoon/.hammerspoon
 	url = git@github.com:avmohan/awesome-hammerspoon.git
+[submodule "tmux/.tmux/plugins/tmux-fpp"]
+	path = tmux/.tmux/plugins/tmux-fpp
+	url = https://git::@github.com/tmux-plugins/tmux-fpp
+[submodule "tmux/.tmux/plugins/tmux-fzf"]
+	path = tmux/.tmux/plugins/tmux-fzf
+	url = https://git::@github.com/sainnhe/tmux-fzf
+[submodule "tmux/.tmux/plugins/tmux-logging"]
+	path = tmux/.tmux/plugins/tmux-logging
+	url = https://git::@github.com/tmux-plugins/tmux-logging
+[submodule "tmux/.tmux/plugins/tmux-mighty-scroll"]
+	path = tmux/.tmux/plugins/tmux-mighty-scroll
+	url = https://git::@github.com/noscript/tmux-mighty-scroll
+[submodule "tmux/.tmux/plugins/tmux-power"]
+	path = tmux/.tmux/plugins/tmux-power
+	url = https://git::@github.com/wfxr/tmux-power
+[submodule "tmux/.tmux/plugins/tmux-powerline"]
+	path = tmux/.tmux/plugins/tmux-powerline
+	url = https://git::@github.com/erikw/tmux-powerline
+[submodule "tmux/.tmux/plugins/tmux"]
+	path = tmux/.tmux/plugins/tmux
+	url = https://git::@github.com/dracula/tmux
