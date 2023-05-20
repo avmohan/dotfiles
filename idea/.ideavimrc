@@ -166,6 +166,7 @@ nnoremap <leader>tr  :action ReopenClosedTab<CR>
 nnoremap <leader>tp  :action PinActiveTab<CR>
 nnoremap <leader>tu  :action CloseAllUnpinnedEditors<CR>
 nnoremap <leader>tQ  :action CloseAllEditors<CR>
+nnoremap <leader>tt  :action ActivateTerminalToolWindow<CR>
 
 nnoremap <leader>aj  :action AceAction<CR>
 

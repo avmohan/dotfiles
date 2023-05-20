@@ -25,9 +25,6 @@ set showmatch
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
 
-" Set colorscheme to solarized-dark
-" colorscheme solarized
-
 "set smartindent
 
 set backspace=indent,eol,start
@@ -47,3 +44,6 @@ nnoremap <leader>w <c-w>w
 " Faster vertical scroll
 nnoremap <M-j> 15j
 nnoremap <M-k> 15k
+
+packadd! dracula
+colorscheme dracula
