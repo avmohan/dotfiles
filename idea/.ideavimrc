@@ -11,6 +11,7 @@ nnoremap \wd :action ToggleDistractionFreeMode<CR>
 nnoremap \wp :action TogglePresentationMode<CR>
 nnoremap \wz :action ToggleZenMode<CR>
 nnoremap \wf :action ToggleFullScreen<CR>
+nnoremap \wg :action actions.GoldenRatioToggleAction<CR>
 nnoremap \\\ :action HideAllWindows<CR>
 nnoremap \t :action ChangeLaf<CR>
 nnoremap \l :set invrelativenumber<CR>
@@ -21,6 +22,7 @@ nnoremap \= :action EditorResetFontSize<CR>
 nnoremap \wf :action ToggleFullScreen<CR>
 nnoremap \mr :action Maven.Reimport<CR>
 
+
 " Refactorings
 nnoremap <leader>rr :action Refactorings.QuickListPopupAction<CR>
 nnoremap <leader>rv :action IntroduceVariable<CR>
@@ -28,6 +30,7 @@ nnoremap <leader>rc :action IntroduceConstant<CR>
 nnoremap <leader>rp :action IntroduceParameter<CR>
 nnoremap <leader>re :action RenameElement<CR>
 nnoremap <leader>rf :action RenameFile<CR>
+nnoremap <leader>rs :action ChangeSignature<CR>
 
 nnoremap <leader>o :action OptimizeImports<CR>
 nnoremap <leader>= :action ReformatCode<CR>
@@ -173,5 +176,3 @@ nnoremap <leader>aj  :action AceAction<CR>
 nnoremap <leader>/  :action ShowErrorDescription<CR>
 
 nnoremap <leader>i  :action Generate<CR>
-
-:action VimFindActionIdAction<CR>
