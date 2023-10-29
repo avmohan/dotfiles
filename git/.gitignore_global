@@ -14,3 +14,6 @@
 /.project
 /.settings/
 /.jpb/
+
+# Idea dir
+.idea/

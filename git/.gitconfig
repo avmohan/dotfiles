@@ -69,6 +69,11 @@
     show = diff-so-fancy | less --tabs=4 -RFX
     diff = diff-so-fancy | less --tabs=4 -RFX
 
+[blame]
+#	ignoreRevsFile = .git-blame-ignore-revs
+	markUnblamableLines = true
+	markIgnoredLines = true
+
 # Overrides for work
 [includeIf "gitdir:~/work/"]
     path = ~/work/.gitconfig
