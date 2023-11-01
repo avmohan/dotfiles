@@ -54,7 +54,7 @@ zinit snippet OMZP::git-extras
 zinit snippet OMZP::vscode
 zinit snippet OMZP::urltools
 
-eval "$(jira --completion-script-zsh)"
+#eval "$(jira --completion-script-zsh)"
 
 
 #zinit ice pick"_ripgrep"
