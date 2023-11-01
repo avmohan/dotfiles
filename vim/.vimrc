@@ -45,5 +45,14 @@ nnoremap <leader>w <c-w>w
 nnoremap <M-j> 15j
 nnoremap <M-k> 15k
 
-packadd! dracula
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+Plug 'dracula/vim', { 'as': 'dracula' }
+call plug#end()
+
 colorscheme dracula
