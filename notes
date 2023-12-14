@@ -1,0 +1,54 @@
+## TPM
+
+pref I        -> install new
+pref U        -> update
+pref alt + u  -> uninstall plugins not in list
+
+## Sensible
+
+pref C-p        -> previous window
+pref C-n        -> next window
+pref b          -> last window (if pref is C-b)
+
+## Pain control
+
+pref + h, j, k, l to move pane by vim convention, also works with pref + C-h, C-j etc.
+pref + H, J, K, L (i.e. holding shift) to resize panes
+
+pref |  -> split to left-right
+pref -  -> split to top-bot
+pref \  -> split full width to left-right
+pref _  -> split full width to top-bot
+
+## Resurrect
+
+pref C-s    -> save
+pref C-r    -> resurrect
+
+## Sidebar
+
+pref C-Tab          -> sidebar, no focus  or close sidebar
+pref C-Backspace    -> sidebar, focus
+
+## Copycat
+
+
+## Yank
+
+
+## Open
+
+open highlighted in default prog
+open highlighted in $EDITOR
+search highlighted in Google
+
+
+## Fpp
+
+open path in editor
+
+## fzf
+
+## logging
+
+## mighty scroll

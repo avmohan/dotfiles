@@ -21,6 +21,9 @@ nnoremap \[ :action EditorDecreaseFontSizeGlobal<CR>
 nnoremap \= :action EditorResetFontSize<CR>
 nnoremap \wf :action ToggleFullScreen<CR>
 nnoremap \mr :action Maven.Reimport<CR>
+nnoremap \pq :action CloseProject<CR>AllProject
+nnoremap \pQ :action CloseAllProject<CR>
+nnoremap \po :action CloseOtherProjects<CR>
 
 
 " Refactorings
@@ -40,7 +43,7 @@ nnoremap <leader>= :action ReformatCode<CR>
 set relativenumber number
 
 " Show hints for 5 sec
-set which-key timeoutlen=5000
+set which-key timeoutlen=60000
 
 " Search ignores case by default, consider if using any capital letter
 set ignorecase smartcase
@@ -158,6 +161,7 @@ nnoremap <leader>gs :action GotoSuperMethod<CR>
 nnoremap <leader>gt :action GotoTest<CR>
 nnoremap <leader>gr :action GotoRelated<CR>
 nnoremap <leader>gb :action Annotate<CR>
+nnoremap <leader>gj :action GitToolBox.OpenIssueLinks<CR>
 
 " nnoremap <leader>dd :action Debug<CR>
 nnoremap <leader>dc :action ChooseDebugConfiguration<CR>
