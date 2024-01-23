@@ -1,7 +1,7 @@
 # Exec into tmux session named "main" if running inside iTerm
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [ -z "$TMUX" ] && [ ! -z "$ITERM_PROFILE" ]; then
-  exec tmux new-session -A -s main
-fi
+# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [ -z "$TMUX" ] && [ ! -z "$ITERM_PROFILE" ]; then
+#   exec tmux new-session -A -s main
+# fi
 
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -97,3 +97,4 @@ zinit snippet OMZP::sdk
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH="$HOME/local/bin:$PATH"
+export PATH="/usr/local/opt/curl/bin:$PATH"

@@ -5,6 +5,7 @@
 [core]
     excludesfile = ~/.gitignore_global
     autocrlf = input
+    pager = delta
 
 [log]
     date = local
@@ -29,6 +30,7 @@
 
 [diff]
     algorithm = patience
+    colorMoved = default
 
 [branch]
     autosetuprebase = always
@@ -49,25 +51,25 @@
 [color]
     ui = true
 
-[color "diff-highlight"]
-    oldNormal = red bold
-    oldHighlight = red bold 52
-    newNormal = green bold
-    newHighlight = green bold 22
+; [color "diff-highlight"]
+;     oldNormal = red bold
+;     oldHighlight = red bold 52
+;     newNormal = green bold
+;     newHighlight = green bold 22
 
-[color "diff"]
-    meta = yellow
-    frag = magenta bold
-    commit = yellow bold
-    old = red bold
-    new = green bold
-    whitespace = red reverse
+; [color "diff"]
+;     meta = yellow
+;     frag = magenta bold
+;     commit = yellow bold
+;     old = red bold
+;     new = green bold
+;     whitespace = red reverse
 
 # TODO preseed with pattern - '^(commit [a-f0-9]+|added:|deleted:|modified:) '
-[pager]
-    log = diff-so-fancy | less --tabs=4 -RFX
-    show = diff-so-fancy | less --tabs=4 -RFX
-    diff = diff-so-fancy | less --tabs=4 -RFX
+; [pager]
+;     log = diff-so-fancy | less --tabs=4 -RFX
+;     show = diff-so-fancy | less --tabs=4 -RFX
+;     diff = diff-so-fancy | less --tabs=4 -RFX
 
 [blame]
 #	ignoreRevsFile = .git-blame-ignore-revs
@@ -77,3 +79,9 @@
 # Overrides for work
 [includeIf "gitdir:~/work/"]
     path = ~/work/.gitconfig
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	light = false
+	side-by-side = true
